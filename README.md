@@ -1,1 +1,3 @@
-# techdegree-project-1
+# First Treehouse Techdegree Project.
+
+Creating a random quote generator.
