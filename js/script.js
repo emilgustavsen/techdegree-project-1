@@ -9,66 +9,48 @@ FSJS project 1 - A Random Quote Generator
 
 let quotes = [
 {
-  quote: '“Confidence is ignorance. If you\'re feeling cocky, it\'s because there\'s something you don\'t know.” ',
+  quote: 'Confidence is ignorance. If you\'re feeling cocky, it\'s because there\'s something you don\'t know. ',
   source: 'Eoin Colfer',
   citation: 'Artemis Fowl',
-  year: undefined,
 },
 {
-  quote: '“Success is most often achieved by those who don\'t know that failure is inevitable.”',
+  quote: 'Success is most often achieved by those who don\'t know that failure is inevitable.',
   source: 'Coco Chanel',
-  citation: '',
   year: 1992,
 },
 {
-  quote: '“We either make ourselves miserable, or we make ourselves strong. The amount of work is the same.” ',
+  quote: 'We either make ourselves miserable, or we make ourselves strong. The amount of work is the same. ',
   source: 'Carlos Castaneda',
-  citation: '',
-  year: undefined,
 },
 {
-  quote: '“When I was a child my mother said to me, \'If you become a soldier, you\'ll be a general. If you become a monk, you\'ll be the pope.\' Instead I became a painter and wound up as Picasso.”',
+  quote: 'When I was a child my mother said to me, \'If you become a soldier, you\'ll be a general. If you become a monk, you\'ll be the pope.\' Instead I became a painter and wound up as Picasso.',
   source: 'Pablo Picasso',
-  citation: '',
-  year: undefined,
 },
 {
-  quote: '“A great man is always willing to be little.”',
+  quote: 'A great man is always willing to be little.',
   source: 'Ralph Waldo Emerson',
-  citation: '',
-  year: undefined,
 },
 {
-  quote: '“Be who you are and say what you feel, because those who mind don\'t matter, and those who matter don\'t mind.”',
-  source: '',
-  citation: '',
-  year: undefined,
+  quote: 'Be who you are and say what you feel, because those who mind don\'t matter, and those who matter don\'t mind.',
+  source: 'Bernard M. Baruch',
 },
 {
-  quote: '“You\'ve gotta dance like there\'s nobody watching, Love like you\'ll never be hurt, Sing like there\'s nobody listening, And live like it\'s heaven on earth.” ',
+  quote: 'You\'ve gotta dance like there\'s nobody watching, Love like you\'ll never be hurt, Sing like there\'s nobody listening, And live like it\'s heaven on earth. ',
   source: 'William W. Purkey',
-  citation: '',
-  year: undefined,
 },
 {
-  quote: '"Failure will never overtake me if my determination to succeed is strong enough"',
+  quote: 'Failure will never overtake me if my determination to succeed is strong enough',
   source: 'Og Mandino',
-  citation: '',
-  year: undefined,
 },
 {
-  quote: '"Life is 10% what happens to you and 90% how you react to it"',
+  quote: 'Life is 10% what happens to you and 90% how you react to it',
   source: 'Charles R. Swindoll',
-  citation: '',
-  year: undefined,
 },
 {
-  quote: '"I\'d rather attempt to do something great and fail than to attempt to do nothing and succeed."',
+  quote: 'I\'d rather attempt to do something great and fail than to attempt to do nothing and succeed.',
   source: 'Robert H. Schuller',
-  citation: '',
-  year: undefined,
 },
-]
+];
 
 /***
   Create the `getRandomQuote` function to:
@@ -77,15 +59,16 @@ let quotes = [
      `quotes` array.
 ***/
 
-function getRandomNumber (maxNum) {
-  Math.floor(Math.random() * maxNum)
+
+function getRandomQuote (array) {
+  return quotes[Math.floor(Math.random() * array.length)];
 }
 
-function getRandomQuote () {
-  return getRandomNumber(10)
+function print(text) {
+
+  text 
 
 }
-
 
 /***
   Create the `printQuote` function to: 
@@ -96,8 +79,40 @@ function getRandomQuote () {
      they are added to the HTML string.
    - set the `innerHTML` of the `quote-box` div to the HTML string. 
 ***/
+let finished = ''
+let quoteSpot;
+let sourceSpot;
+let citationSpot;
+let yearSpot;
+ 
 
+function printQuote () {
+  let quoteShown = getRandomQuote(quotes);
+  quoteSpot = quoteShown.quote;
+  sourceSpot = quoteShown.source;
+  citationSpot = quoteShown.citation;
+  yearspot = quoteShown.year;
+  if (quoteShown.citation !== undefined) {
+    finished = '<p class="quote">' + quoteSpot + '</p><p class="source">' + sourceSpot + '<span class="citation">' + citationSpot + '</span></p>'
+  }
+  else if (quoteShown.year !== undefined) {
+    finished = '<p class="quote">' + quoteSpot + '</p><p class="source">' + sourceSpot + '<span class="year">' + yearSpot + '</span></p>'
+  }
+  else {
+    finished = '<p class="quote">' + quoteSpot + '</p><p class="source">' + sourceSpot
+  }
+  document.getElementById('quote-box').innerHTML = finished;
+}
 
+  // if (quoteShown.year !== undefined) {
+  //   return finished = quoteShown.quote + quoteShown.source + quoteShown.year;
+  // }
+  // else if (quoteShown.citation !== undefined) {
+  //   return finished = quoteShown.quote + quoteShown.source + quoteShown.citation;
+  // }
+  // else {
+  //   return finished = quoteShown.quote + quoteShown.source;
+  // }
 
 
 /***
