@@ -1,10 +1,3 @@
-/******************************************
-Treehouse Techdegree:
-FSJS project 1 - A Random Quote Generator
-******************************************/
-
-// Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
-
 // Added quotes 
 
 let quotes = [
@@ -52,46 +45,28 @@ let quotes = [
 },
 ];
 
-/***
-  Create the `getRandomQuote` function to:
-   - generate a random number 
-   - use the random number to `return` a random quote object from the 
-     `quotes` array.
-***/
-
+// Function to get a random index of an array
 
 function getRandomQuote (array) {
   return quotes[Math.floor(Math.random() * array.length)];
 }
 
-function print(text) {
+// variables used in printQuote function
 
-  text 
-
-}
-
-/***
-  Create the `printQuote` function to: 
-   - call the `getRandomQuote` function and assign it to a variable.
-   - use the properties of the quote object stored in the variable to 
-     create your HTML string.
-   - use conditionals to make sure the optional properties exist before 
-     they are added to the HTML string.
-   - set the `innerHTML` of the `quote-box` div to the HTML string. 
-***/
-let finished = ''
+let finished = '';
 let quoteSpot;
 let sourceSpot;
 let citationSpot;
 let yearSpot;
  
+// Function to print out a quote from the quotes variable to the 'quote-box' ID in index.html
 
 function printQuote () {
   let quoteShown = getRandomQuote(quotes);
   quoteSpot = quoteShown.quote;
   sourceSpot = quoteShown.source;
   citationSpot = quoteShown.citation;
-  yearspot = quoteShown.year;
+  yearSpot = quoteShown.year;
   if (quoteShown.citation !== undefined) {
     finished = '<p class="quote">' + quoteSpot + '</p><p class="source">' + sourceSpot + '<span class="citation">' + citationSpot + '</span></p>'
   }
@@ -104,25 +79,6 @@ function printQuote () {
   document.getElementById('quote-box').innerHTML = finished;
 }
 
-  // if (quoteShown.year !== undefined) {
-  //   return finished = quoteShown.quote + quoteShown.source + quoteShown.year;
-  // }
-  // else if (quoteShown.citation !== undefined) {
-  //   return finished = quoteShown.quote + quoteShown.source + quoteShown.citation;
-  // }
-  // else {
-  //   return finished = quoteShown.quote + quoteShown.source;
-  // }
+// Event listener that allows button to run printQuote function
 
-
-/***
-  When the "Show another quote" button is clicked, the event listener 
-  below will be triggered, and it will call, or "invoke", the `printQuote` 
-  function. So do not make any changes to the line of code below this 
-  comment.
-***/
-
-// document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-
-
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
+document.getElementById('loadQuote').addEventListener("click", printQuote, false);
